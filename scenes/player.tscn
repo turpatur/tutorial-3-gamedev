@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dvlyhuf4uyjqv"]
+
+[ext_resource type="Texture2D" uid="uid://dqe3xcii54qm" path="res://assets/kenney_platformercharacters/PNG/Player/Poses/player_idle.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://cm10jas1hn28j" path="res://scripts/Player.gd" id="1_g2els"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(60, 96)
+
+[node name="Player" type="CharacterBody2D" unique_id=407161361]
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=520404566]
+position = Vector2(1, -5)
+shape = SubResource("RectangleShape2D_g2els")
+
+[node name="PlayerIdle" type="Sprite2D" parent="." unique_id=1528413439]
+position = Vector2(1, -12)
+texture = ExtResource("1_3vyb7")
