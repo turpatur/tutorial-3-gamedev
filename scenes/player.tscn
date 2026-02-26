@@ -1,10 +1,56 @@
 [gd_scene format=3 uid="uid://dvlyhuf4uyjqv"]
 
-[ext_resource type="Texture2D" uid="uid://dqe3xcii54qm" path="res://assets/kenney_platformercharacters/PNG/Player/Poses/player_idle.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cm10jas1hn28j" path="res://scripts/Player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://1xshihxylvkf" path="res://assets/kenney_platformercharacters/Vector/player_vector.svg" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(60, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(0, 2, 80, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(80, 2, 80, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(0, 111, 80, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(80, 111, 80, 109)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y4r1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}],
+"loop": true,
+"name": &"player_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}],
+"loop": true,
+"name": &"player_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}],
+"loop": true,
+"name": &"player_run",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" unique_id=407161361]
 script = ExtResource("1_g2els")
@@ -13,6 +59,8 @@ script = ExtResource("1_g2els")
 position = Vector2(1, -5)
 shape = SubResource("RectangleShape2D_g2els")
 
-[node name="PlayerIdle" type="Sprite2D" parent="." unique_id=1528413439]
-position = Vector2(1, -12)
-texture = ExtResource("1_3vyb7")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=774324075]
+position = Vector2(1, -10)
+sprite_frames = SubResource("SpriteFrames_y4r1p")
+animation = &"player_jump"
+frame_progress = 0.44661775

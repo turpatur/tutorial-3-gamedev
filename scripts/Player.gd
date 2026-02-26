@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var sprite = $AnimatedSprite2D
 @export var walk_speed = 200
 @export var gravity = 200
 @export var jump_speed = -300
@@ -22,9 +23,18 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -walk_speed
+		sprite.flip_h = true
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x = walk_speed
+		sprite.flip_h = false
 	else:
 		velocity.x = 0
+
+	if not is_on_floor():
+		sprite.play("player_jump")
+	elif velocity.x != 0:
+		sprite.play("player_run")
+	else:
+		sprite.play("player_idle")
 
 	move_and_slide()
