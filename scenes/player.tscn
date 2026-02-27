@@ -6,6 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(60, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(241, 0, 80, 110)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
 atlas = ExtResource("3_qhqgy")
 region = Rect2(0, 2, 80, 109)
@@ -24,6 +28,14 @@ region = Rect2(80, 111, 80, 109)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y4r1p"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2els")
+}],
+"loop": true,
+"name": &"player_crouch",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dqkch")
@@ -62,5 +74,4 @@ shape = SubResource("RectangleShape2D_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=774324075]
 position = Vector2(1, -10)
 sprite_frames = SubResource("SpriteFrames_y4r1p")
-animation = &"player_jump"
-frame_progress = 0.44661775
+animation = &"player_crouch"
