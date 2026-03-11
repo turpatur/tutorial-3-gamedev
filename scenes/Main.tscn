@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://dsyfep1odrxje"]
 
 [ext_resource type="PackedScene" uid="uid://ds60n6krsavle" path="res://scenes/Ground.tscn" id="1_elqb8"]
+[ext_resource type="PackedScene" uid="uid://cfluoy2e2g1m2" path="res://scenes/skelly.tscn" id="1_rarhs"]
 [ext_resource type="PackedScene" uid="uid://dvlyhuf4uyjqv" path="res://scenes/player.tscn" id="1_rvslj"]
+[ext_resource type="AudioStream" uid="uid://h0otnr2jw37v" path="res://assets/bgm.ogg" id="4_rarhs"]
 
 [node name="Root" type="Node2D" unique_id=918599496]
 
-[node name="Player" parent="." unique_id=407161361 instance=ExtResource("1_rvslj")]
-position = Vector2(557, 230)
+[node name="Skelly" parent="." unique_id=173018921 groups=["enemy"] instance=ExtResource("1_rarhs")]
+position = Vector2(273, 206)
+
+[node name="Player" parent="." unique_id=407161361 groups=["player"] instance=ExtResource("1_rvslj")]
+position = Vector2(1694, 224)
+jump_speed = -499
 
 [node name="Ground" parent="." unique_id=673580990 instance=ExtResource("1_elqb8")]
 position = Vector2(296, 324)
@@ -16,3 +22,17 @@ position = Vector2(856, 324)
 
 [node name="Ground3" parent="." unique_id=1648397147 instance=ExtResource("1_elqb8")]
 position = Vector2(576, 394)
+
+[node name="Ground4" parent="." unique_id=1305404531 instance=ExtResource("1_elqb8")]
+position = Vector2(1208, 324)
+
+[node name="Ground5" parent="." unique_id=1038935094 instance=ExtResource("1_elqb8")]
+position = Vector2(1561, 324)
+
+[node name="Ground6" parent="." unique_id=2124242933 instance=ExtResource("1_elqb8")]
+position = Vector2(1247, 123)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1178662847]
+stream = ExtResource("4_rarhs")
+volume_db = -15.782
+autoplay = true
